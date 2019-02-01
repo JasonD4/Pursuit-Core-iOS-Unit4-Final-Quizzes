@@ -30,6 +30,8 @@
 		96FD93E72204D04C00307EA3 /* SearchSetUPView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FD93E62204D04C00307EA3 /* SearchSetUPView.swift */; };
 		96FD93E92204D18D00307EA3 /* SearchCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FD93E82204D18D00307EA3 /* SearchCollectionViewCell.swift */; };
 		96FD93EB2204D4F300307EA3 /* QuizAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FD93EA2204D4F300307EA3 /* QuizAPI.swift */; };
+		96FD93ED2204DA7E00307EA3 /* CreateSetUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FD93EC2204DA7E00307EA3 /* CreateSetUpView.swift */; };
+		96FD93EF2204E06B00307EA3 /* ProfileViewSetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FD93EE2204E06B00307EA3 /* ProfileViewSetup.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,6 +60,8 @@
 		96FD93E62204D04C00307EA3 /* SearchSetUPView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchSetUPView.swift; sourceTree = "<group>"; };
 		96FD93E82204D18D00307EA3 /* SearchCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCollectionViewCell.swift; sourceTree = "<group>"; };
 		96FD93EA2204D4F300307EA3 /* QuizAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizAPI.swift; sourceTree = "<group>"; };
+		96FD93EC2204DA7E00307EA3 /* CreateSetUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateSetUpView.swift; sourceTree = "<group>"; };
+		96FD93EE2204E06B00307EA3 /* ProfileViewSetup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewSetup.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -161,6 +165,8 @@
 				96FD93CD2204AC5200307EA3 /* QuizDetailCollectionViewCell.swift */,
 				96FD93E62204D04C00307EA3 /* SearchSetUPView.swift */,
 				96FD93E82204D18D00307EA3 /* SearchCollectionViewCell.swift */,
+				96FD93EC2204DA7E00307EA3 /* CreateSetUpView.swift */,
+				96FD93EE2204E06B00307EA3 /* ProfileViewSetup.swift */,
 			);
 			path = ViewHelpers;
 			sourceTree = "<group>";
@@ -258,11 +264,13 @@
 				96FD93CA2204A79300307EA3 /* QuizModel.swift in Sources */,
 				96FD93CE2204AC5200307EA3 /* QuizDetailCollectionViewCell.swift in Sources */,
 				96FD93D62204BC5900307EA3 /* QuizzesViewController.swift in Sources */,
+				96FD93ED2204DA7E00307EA3 /* CreateSetUpView.swift in Sources */,
 				96FD93E12204CEBB00307EA3 /* SearchViewController.swift in Sources */,
 				96FD93E92204D18D00307EA3 /* SearchCollectionViewCell.swift in Sources */,
 				96FD93D02204ADF800307EA3 /* TabBar.swift in Sources */,
 				96FD93D22204AF0600307EA3 /* QuizesNavController.swift in Sources */,
 				96FD93C72204A6B500307EA3 /* QuizDetail.swift in Sources */,
+				96FD93EF2204E06B00307EA3 /* ProfileViewSetup.swift in Sources */,
 				577118DF22037BAA00B9DD0B /* String+DateExtensions.swift in Sources */,
 				577118DD22037B8E00B9DD0B /* Date+Extensions.swift in Sources */,
 			);

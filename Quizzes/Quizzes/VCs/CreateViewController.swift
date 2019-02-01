@@ -10,9 +10,11 @@ import UIKit
 
 class CreateViewController: UIViewController {
 
+    var uiSetUp = CreateSetUpView()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        view.addSubview(uiSetUp)
         // Do any additional setup after loading the view.
     }
     

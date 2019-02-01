@@ -11,6 +11,8 @@ import UIKit
 class QuizDetailViewController: UIViewController {
 var uiSetUp = QuizDetail()
 var cell = QuizDetailCollectionViewCell()
+var factOne = false
+var factTwo = false
     
     var test = 2
     override func viewDidLoad() {
@@ -48,14 +50,16 @@ extension QuizDetailViewController: UICollectionViewDataSource{
 extension QuizDetailViewController: UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print(indexPath.row)
-        if cell.quizDetailText.text  == "hi"{
+        if factOne  == false {
             UIView.transition(with: uiSetUp.collectionOfFacts.cellForItem(at: indexPath) ?? cell, duration: 1.0, options: [.transitionFlipFromRight], animations: {
                 self.cell.quizDetailText.text = "4"
+                self.factOne = true
             })
         }
         else{
             UIView.transition(with: uiSetUp.collectionOfFacts.cellForItem(at: indexPath) ?? cell, duration: 1.0, options: [.transitionFlipFromLeft], animations: {
                 self.cell.quizDetailText.text = "3"
+                self.factOne = false
                 
             })
         }

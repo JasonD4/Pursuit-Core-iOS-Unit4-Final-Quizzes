@@ -9,9 +9,14 @@
 import UIKit
 
 class ProfileViewController: UIViewController {
+    
+    var profileSetUp = ProfileViewSetup()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+view.addSubview(profileSetUp)
+
+        profileSetUp.photoButton.layer.cornerRadius = profileSetUp.photoButton.bounds.width/2.0
 
         // Do any additional setup after loading the view.
     }
