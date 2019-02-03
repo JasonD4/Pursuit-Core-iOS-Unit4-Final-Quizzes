@@ -34,6 +34,21 @@ class QuizzesViewController: UIViewController {
         quizs = SavingManager.loadTheEntry()
 
     }
+    
+    @objc func deletor(){
+        let alert = UIAlertController(title: "Options", message: "", preferredStyle: .actionSheet)
+        alert.addAction(UIAlertAction.init(title: "cancel", style: .cancel, handler: nil))
+        alert.addAction(UIAlertAction.init(title: "delete", style: .destructive){(deleter) in
+            let cell = QuizQuestions()
+            SavingManager.removing(index: cell.optionButtons.tag )
+            self.quizs = SavingManager.loadTheEntry()
+            self.quizLayout.collectionOfQuizes.reloadData()
+
+        })
+        self.present(alert, animated: true)
+        
+        
+        }
         
         
     }
@@ -48,6 +63,8 @@ class QuizzesViewController: UIViewController {
         func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
             guard let cell = quizLayout.collectionOfQuizes.dequeueReusableCell(withReuseIdentifier: "QuizCells", for: indexPath) as? QuizQuestions else{return UICollectionViewCell() }
             cell.quizText.text = quizs[indexPath.row].quizTitle
+            cell.optionButtons.tag = indexPath.row
+            cell.optionButtons.addTarget(self, action: #selector(deletor), for: .touchUpInside)
             
             
             return cell
@@ -58,6 +75,7 @@ class QuizzesViewController: UIViewController {
 extension QuizzesViewController: UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let vc = QuizDetailViewController()
+        
         vc.quiz = quizs[indexPath.row]
         
         self.navigationController?.pushViewController(vc, animated: true)
