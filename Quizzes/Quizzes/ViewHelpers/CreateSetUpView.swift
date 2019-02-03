@@ -29,6 +29,8 @@ class CreateSetUpView: UIView {
         return textField
     }()
     
+  
+    
     lazy var factOne: UITextField = {
         let textField = UITextField()
         textField.placeholder = "Enter first fact"
@@ -51,12 +53,14 @@ class CreateSetUpView: UIView {
         factOneConstraint()
         factTwoConstraint()
     }
+    
+    
 
     func factTitleConstraint(){
         addSubview(factTitle)
         factTitle.translatesAutoresizingMaskIntoConstraints = false
         factTitle.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 15).isActive = true
-        factTitle.rightAnchor.constraint(equalTo: rightAnchor, constant: 10).isActive = true
+        factTitle.rightAnchor.constraint(equalTo: rightAnchor, constant: -10).isActive = true
         factTitle.leftAnchor.constraint(equalTo: leftAnchor, constant: 10).isActive = true
         
     }
@@ -64,17 +68,18 @@ class CreateSetUpView: UIView {
     func factOneConstraint(){
         addSubview(factOne)
         factOne.translatesAutoresizingMaskIntoConstraints = false
-        factOne.topAnchor.constraint(equalTo: factTitle.bottomAnchor, constant: 15).isActive = true
-        factOne.rightAnchor.constraint(equalTo: rightAnchor, constant: 10).isActive = true
+        factOne.topAnchor.constraint(equalTo: factTitle.bottomAnchor, constant: 20).isActive = true
+        factOne.rightAnchor.constraint(equalTo: rightAnchor, constant: -10).isActive = true
         factOne.leftAnchor.constraint(equalTo: leftAnchor, constant: 10).isActive = true
         factOne.heightAnchor.constraint(equalToConstant: 250).isActive = true
     }
     func factTwoConstraint(){
         addSubview(factTwo)
         factTwo.translatesAutoresizingMaskIntoConstraints = false
-        factTwo.topAnchor.constraint(equalTo: factOne.bottomAnchor, constant: 80).isActive = true
-        factTwo.rightAnchor.constraint(equalTo: rightAnchor, constant: 10).isActive = true
+        factTwo.topAnchor.constraint(equalTo: factOne.bottomAnchor, constant: 20).isActive = true
+        factTwo.rightAnchor.constraint(equalTo: rightAnchor, constant: -10).isActive = true
         factTwo.leftAnchor.constraint(equalTo: leftAnchor, constant: 10).isActive = true
         factTwo.heightAnchor.constraint(equalToConstant: 250).isActive = true
     }
+    
 }

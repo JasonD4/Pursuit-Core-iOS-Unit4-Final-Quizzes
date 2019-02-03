@@ -11,14 +11,39 @@ import UIKit
 class CreateViewController: UIViewController {
 
     var uiSetUp = CreateSetUpView()
+    var submit = UIButton()
+    
+    var cancel = UIButton()
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.addSubview(uiSetUp)
-        // Do any additional setup after loading the view.
+        test()
+        let leftBarButton = UIBarButtonItem(customView: cancel)
+        self.navigationItem.leftBarButtonItem = leftBarButton
+        let rightBarButton = UIBarButtonItem(customView: submit)
+        self.navigationItem.rightBarButtonItem = rightBarButton
+
     }
     
+    func test(){
+        title = "Create Post"
+        cancel.setTitle("Cancel", for: .normal)
+        cancel.setTitleColor(.black, for: .normal)
+        cancel.frame = CGRect(x: 0, y: 0, width: 30, height: 30)
+        cancel.addTarget(self, action: #selector(testing), for: .touchUpInside)
 
+        submit.setTitle("Submit", for: .normal)
+        submit.frame = CGRect(x: 0, y: 0, width: 30, height: 30)
+        submit.setTitleColor(.black, for: .normal)
+        submit.addTarget(self, action: #selector(testing), for: .touchUpInside)
+
+    }
+    
+    @objc func testing(){
+        print(2)
+    }
     /*
     // MARK: - Navigation
 

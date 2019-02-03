@@ -11,10 +11,11 @@ import UIKit
 class QuizzesViewController: UIViewController {
         var quizLayout = QuizesContollerView()
         
-    var test = [1,2,3]{
+    var quizs = [SaveModel](){
         didSet{
             DispatchQueue.main.async{
                 self.quizLayout.collectionOfQuizes.reloadData()
+                
             }
         }
     }
@@ -23,11 +24,16 @@ class QuizzesViewController: UIViewController {
             super.viewDidLoad()
             view.addSubview(quizLayout)
             view.backgroundColor = .white
+            quizs = SavingManager.loadTheEntry()
             quizLayout.collectionOfQuizes.delegate = self
             quizLayout.collectionOfQuizes.dataSource = self
             quizLayout.collectionOfQuizes.register(QuizQuestions.self, forCellWithReuseIdentifier: "QuizCells")
             // Do any additional setup after loading the view, typically from a nib.
         }
+    override func viewWillAppear(_ animated: Bool) {
+        quizs = SavingManager.loadTheEntry()
+
+    }
         
         
     }
@@ -35,15 +41,13 @@ class QuizzesViewController: UIViewController {
 
     extension QuizzesViewController: UICollectionViewDataSource{
         func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-            return 4
+            return quizs.count
             
         }
         
         func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
             guard let cell = quizLayout.collectionOfQuizes.dequeueReusableCell(withReuseIdentifier: "QuizCells", for: indexPath) as? QuizQuestions else{return UICollectionViewCell() }
-            
-            cell.quizText.text = "hi"
-            
+            cell.quizText.text = quizs[indexPath.row].quizTitle
             
             
             return cell
@@ -54,7 +58,7 @@ class QuizzesViewController: UIViewController {
 extension QuizzesViewController: UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let vc = QuizDetailViewController()
-        vc.test = indexPath.row
+        vc.quiz = quizs[indexPath.row]
         
         self.navigationController?.pushViewController(vc, animated: true)
 

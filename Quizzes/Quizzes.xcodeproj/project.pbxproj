@@ -32,6 +32,10 @@
 		96FD93EB2204D4F300307EA3 /* QuizAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FD93EA2204D4F300307EA3 /* QuizAPI.swift */; };
 		96FD93ED2204DA7E00307EA3 /* CreateSetUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FD93EC2204DA7E00307EA3 /* CreateSetUpView.swift */; };
 		96FD93EF2204E06B00307EA3 /* ProfileViewSetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FD93EE2204E06B00307EA3 /* ProfileViewSetup.swift */; };
+		96FD93F12206219900307EA3 /* CreateNavControllerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FD93F02206219900307EA3 /* CreateNavControllerViewController.swift */; };
+		96FD93F32206249C00307EA3 /* SaveModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FD93F22206249C00307EA3 /* SaveModel.swift */; };
+		96FD93F52206363900307EA3 /* SavingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FD93F42206363900307EA3 /* SavingManager.swift */; };
+		96FD93F722063E9E00307EA3 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FD93F622063E9E00307EA3 /* UserDefaults.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,6 +66,10 @@
 		96FD93EA2204D4F300307EA3 /* QuizAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizAPI.swift; sourceTree = "<group>"; };
 		96FD93EC2204DA7E00307EA3 /* CreateSetUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateSetUpView.swift; sourceTree = "<group>"; };
 		96FD93EE2204E06B00307EA3 /* ProfileViewSetup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewSetup.swift; sourceTree = "<group>"; };
+		96FD93F02206219900307EA3 /* CreateNavControllerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNavControllerViewController.swift; sourceTree = "<group>"; };
+		96FD93F22206249C00307EA3 /* SaveModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveModel.swift; sourceTree = "<group>"; };
+		96FD93F42206363900307EA3 /* SavingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavingManager.swift; sourceTree = "<group>"; };
+		96FD93F622063E9E00307EA3 /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,8 +153,8 @@
 		96FD93C02204A28500307EA3 /* VCs */ = {
 			isa = PBXGroup;
 			children = (
-				96FD93CB2204AC3300307EA3 /* QuizDetailViewController.swift */,
 				96FD93D52204BC5900307EA3 /* QuizzesViewController.swift */,
+				96FD93CB2204AC3300307EA3 /* QuizDetailViewController.swift */,
 				96FD93E02204CEBB00307EA3 /* SearchViewController.swift */,
 				96FD93E22204CED200307EA3 /* CreateViewController.swift */,
 				96FD93E42204CEDC00307EA3 /* ProfileViewController.swift */,
@@ -160,6 +168,7 @@
 				96FD93C62204A6B500307EA3 /* QuizDetail.swift */,
 				96FD93D32204B65700307EA3 /* QuizesContollerView.swift */,
 				96FD93D12204AF0600307EA3 /* QuizesNavController.swift */,
+				96FD93F02206219900307EA3 /* CreateNavControllerViewController.swift */,
 				96FD93CF2204ADF800307EA3 /* TabBar.swift */,
 				96FD93C12204A31000307EA3 /* QuizQuestions.swift */,
 				96FD93CD2204AC5200307EA3 /* QuizDetailCollectionViewCell.swift */,
@@ -176,6 +185,9 @@
 			children = (
 				96FD93C92204A79300307EA3 /* QuizModel.swift */,
 				96FD93EA2204D4F300307EA3 /* QuizAPI.swift */,
+				96FD93F22206249C00307EA3 /* SaveModel.swift */,
+				96FD93F42206363900307EA3 /* SavingManager.swift */,
+				96FD93F622063E9E00307EA3 /* UserDefaults.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -264,6 +276,8 @@
 				96FD93CA2204A79300307EA3 /* QuizModel.swift in Sources */,
 				96FD93CE2204AC5200307EA3 /* QuizDetailCollectionViewCell.swift in Sources */,
 				96FD93D62204BC5900307EA3 /* QuizzesViewController.swift in Sources */,
+				96FD93F12206219900307EA3 /* CreateNavControllerViewController.swift in Sources */,
+				96FD93F52206363900307EA3 /* SavingManager.swift in Sources */,
 				96FD93ED2204DA7E00307EA3 /* CreateSetUpView.swift in Sources */,
 				96FD93E12204CEBB00307EA3 /* SearchViewController.swift in Sources */,
 				96FD93E92204D18D00307EA3 /* SearchCollectionViewCell.swift in Sources */,
@@ -271,8 +285,10 @@
 				96FD93D22204AF0600307EA3 /* QuizesNavController.swift in Sources */,
 				96FD93C72204A6B500307EA3 /* QuizDetail.swift in Sources */,
 				96FD93EF2204E06B00307EA3 /* ProfileViewSetup.swift in Sources */,
+				96FD93F722063E9E00307EA3 /* UserDefaults.swift in Sources */,
 				577118DF22037BAA00B9DD0B /* String+DateExtensions.swift in Sources */,
 				577118DD22037B8E00B9DD0B /* Date+Extensions.swift in Sources */,
+				96FD93F32206249C00307EA3 /* SaveModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

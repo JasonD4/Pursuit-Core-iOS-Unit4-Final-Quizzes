@@ -8,28 +8,40 @@
 
 import UIKit
 
+protocol Userprofile {
+    func user(name: String)
+}
+
 class ProfileViewController: UIViewController {
-    
+    var user: Userprofile!
     var profileSetUp = ProfileViewSetup()
+    var texts = "kjnln"
 
     override func viewDidLoad() {
         super.viewDidLoad()
 view.addSubview(profileSetUp)
-
+        profileSetUp.profileButton.addTarget(self, action: #selector(profile), for: .touchUpInside)
         profileSetUp.photoButton.layer.cornerRadius = profileSetUp.photoButton.bounds.width/2.0
 
         // Do any additional setup after loading the view.
     }
     
+    @objc func profile(){
+            let alert = UIAlertController(title: "Enter User Name", message: "", preferredStyle: .alert)
+        alert.addTextField(configurationHandler: { (text: UITextField) in
+           text.allowsEditingTextAttributes = true
+            print(text.text)
+            })
+//            alert.addAction(UIAlertAction.init(title: "cancel", style: .cancel, handler: nil))
+            alert.addAction(UIAlertAction.init(title: "Save", style: .default){(saver) in
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+//                UserDefaults.standard.set(UUID(), forKey: texts)
+//                self.user.user(name: texts)
+                print(self.texts)
+            })
+            self.present(alert, animated: true)
+//
+        
     }
-    */
 
 }
