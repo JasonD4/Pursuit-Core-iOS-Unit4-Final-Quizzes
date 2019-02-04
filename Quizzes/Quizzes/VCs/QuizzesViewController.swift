@@ -35,12 +35,11 @@ class QuizzesViewController: UIViewController {
 
     }
     
-    @objc func deletor(){
+    @objc func deletor(index: Int){
         let alert = UIAlertController(title: "Options", message: "", preferredStyle: .actionSheet)
         alert.addAction(UIAlertAction.init(title: "cancel", style: .cancel, handler: nil))
         alert.addAction(UIAlertAction.init(title: "delete", style: .destructive){(deleter) in
-            let cell = QuizQuestions()
-            SavingManager.removing(index: cell.optionButtons.tag )
+            SavingManager.removing(index: index )
             self.quizs = SavingManager.loadTheEntry()
             self.quizLayout.collectionOfQuizes.reloadData()
 
