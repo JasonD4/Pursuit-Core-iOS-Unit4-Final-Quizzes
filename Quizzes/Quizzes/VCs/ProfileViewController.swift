@@ -13,7 +13,8 @@ protocol Userprofile {
 }
 
 class ProfileViewController: UIViewController {
-    var user: Userprofile!
+    var image = UIImagePickerController()
+    var user: Userprofile?
     var profileSetUp = ProfileViewSetup()
     var texts = "kjnln"
 
@@ -21,27 +22,54 @@ class ProfileViewController: UIViewController {
         super.viewDidLoad()
 view.addSubview(profileSetUp)
         profileSetUp.profileButton.addTarget(self, action: #selector(profile), for: .touchUpInside)
+        profileSetUp.photoButton.addTarget(self, action: #selector(showImageSelect), for: .touchUpInside)
         profileSetUp.photoButton.layer.cornerRadius = profileSetUp.photoButton.bounds.width/2.0
-
-        // Do any additional setup after loading the view.
+        image.delegate = self
+        
     }
     
-    @objc func profile(){
+   @objc func showImageSelect (){
+        present(image, animated: true, completion: nil)
+    }
+    @objc func profile(test: UITextField){
             let alert = UIAlertController(title: "Enter User Name", message: "", preferredStyle: .alert)
-        alert.addTextField(configurationHandler: { (text: UITextField) in
-           text.allowsEditingTextAttributes = true
-            print(text.text)
-            })
+        
+        
+        alert.addTextField { (textField) in
+            textField.text = ""
+        }
 //            alert.addAction(UIAlertAction.init(title: "cancel", style: .cancel, handler: nil))
-            alert.addAction(UIAlertAction.init(title: "Save", style: .default){(saver) in
-
-//                UserDefaults.standard.set(UUID(), forKey: texts)
-//                self.user.user(name: texts)
-                print(self.texts)
-            })
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak alert] (_) in
+            let textField = alert!.textFields![0] // Force unwrapping because we know it exists.
+            let test = textField.text!
+            UserDefaults.standard.set(test, forKey: UserSavedDefaultName.userDefault)
+            print(test)
+            self.profileSetUp.profileButton.setTitle(textField.text, for: .normal)
+        }))
             self.present(alert, animated: true)
 //
         
     }
 
+}
+
+
+extension ProfileViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate{
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        
+        if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage{
+            profileSetUp.photoButton.setImage(image, for: .normal)
+        }
+        else{
+            print("original Image is nil")
+        }
+        
+        
+        dismiss(animated: true, completion: nil)
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        dismiss(animated: true, completion: nil)
+        
+    }
 }

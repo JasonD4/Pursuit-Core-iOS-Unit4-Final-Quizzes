@@ -8,7 +8,12 @@
 
 import UIKit
 
-class QuizzesViewController: UIViewController {
+class QuizzesViewController: UIViewController, Userprofile {
+    var test = ""
+    func user(name: String) {
+        test = name
+    }
+    
         var quizLayout = QuizesContollerView()
     var indexs = 0
 
@@ -17,6 +22,7 @@ class QuizzesViewController: UIViewController {
         didSet{
             DispatchQueue.main.async{
                 self.quizLayout.collectionOfQuizes.reloadData()
+               self.quizs =  self.quizs.filter(){$0.userId == self.test}
             }
         }
     }
@@ -40,7 +46,6 @@ class QuizzesViewController: UIViewController {
         let alert = UIAlertController(title: "Options", message: "", preferredStyle: .actionSheet)
         alert.addAction(UIAlertAction.init(title: "cancel", style: .cancel, handler: nil))
         alert.addAction(UIAlertAction.init(title: "delete", style: .destructive){(deleter) in
-            let something = QuizQuestions()
             SavingManager.removing(index: index.tag)
             self.quizs = SavingManager.loadTheEntry()
             self.quizLayout.collectionOfQuizes.reloadData()

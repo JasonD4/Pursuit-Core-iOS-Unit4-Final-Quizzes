@@ -19,7 +19,7 @@ final class QuizAPI{
             }
             if let data = data{
                 do{
-                    model = try JSONDecoder().decode([QuizModel].self, from: data)
+                    model = try JSONDecoder().decode([QuizModel].self, from: data).sorted(){$0.quizTitle.first! < $1.quizTitle.first!}
                     complete(nil, model)
                     
                 }
