@@ -10,12 +10,13 @@ import UIKit
 
 class QuizzesViewController: UIViewController {
         var quizLayout = QuizesContollerView()
+    var indexs = 0
+
         
     var quizs = [SaveModel](){
         didSet{
             DispatchQueue.main.async{
                 self.quizLayout.collectionOfQuizes.reloadData()
-                
             }
         }
     }
@@ -35,11 +36,12 @@ class QuizzesViewController: UIViewController {
 
     }
     
-    @objc func deletor(index: Int){
+    @objc func deletor(index: UIButton){
         let alert = UIAlertController(title: "Options", message: "", preferredStyle: .actionSheet)
         alert.addAction(UIAlertAction.init(title: "cancel", style: .cancel, handler: nil))
         alert.addAction(UIAlertAction.init(title: "delete", style: .destructive){(deleter) in
-            SavingManager.removing(index: index )
+            let something = QuizQuestions()
+            SavingManager.removing(index: index.tag)
             self.quizs = SavingManager.loadTheEntry()
             self.quizLayout.collectionOfQuizes.reloadData()
 
@@ -64,7 +66,7 @@ class QuizzesViewController: UIViewController {
             cell.quizText.text = quizs[indexPath.row].quizTitle
             cell.optionButtons.tag = indexPath.row
             cell.optionButtons.addTarget(self, action: #selector(deletor), for: .touchUpInside)
-            
+
             
             return cell
         }
@@ -76,7 +78,7 @@ extension QuizzesViewController: UICollectionViewDelegateFlowLayout{
         let vc = QuizDetailViewController()
         
         vc.quiz = quizs[indexPath.row]
-        
+
         self.navigationController?.pushViewController(vc, animated: true)
 
         
